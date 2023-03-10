@@ -317,5 +317,18 @@
         <customLiveTemplate implementation="zio.intellij.postfix.ZPostfixLiveTemplateHack" />
         !-->
     </extensions>
+    <actions>
+        <action id="MyTestAction"
+                class="zio.intellij.actions.MyTestAction"
+                text="My Test Action"
+                icon="AllIcons.Actions.Dump">
+            <add-to-group group-id="DebuggingActionsGroup" anchor="before" relative-to-action="DumpThreads"/>
+        </action>
 
+        <group id="XDebugger.ToolWindow.DumpFibers">
+            <separator/>
+            <reference ref="MyTestAction"/>
+            <add-to-group group-id="XDebugger.ToolWindow.LeftToolbar" anchor="last"/>
+        </group>
+    </actions>
 </idea-plugin>
